@@ -2,8 +2,8 @@
 
 namespace Mailery\Template\Email\CKEditor\Widget;
 
-use Yiisoft\Widget\Widget;
 use Mailery\Template\Email\Model\EmailEditorInterface;
+use Yiisoft\Widget\Widget;
 
 class CKEditorWidget extends Widget implements EmailEditorInterface
 {
