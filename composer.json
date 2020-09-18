@@ -1,16 +1,20 @@
 {
-    "name": "maileryio/_____",
+    "name": "maileryio/mailery-template-email-ckeditor",
     "type": "library",
-    "description": "_____",
+    "description": "Email template ckeditor module for Mailery Platform",
     "keywords": [
-        "_____"
+        "mail",
+        "mailer",
+        "template",
+        "email",
+        "ckeditor"
     ],
-    "homepage": "https://github.com/maileryio/_____",
+    "homepage": "https://github.com/maileryio/mailery-template-email-ckeditor",
     "license": "BSD-3-Clause",
     "support": {
-        "source": "https://github.com/maileryio/_____",
-        "issues": "https://github.com/maileryio/_____/issues",
-        "wiki": "https://github.com/maileryio/_____/wiki"
+        "source": "https://github.com/maileryio/mailery-template-email-ckeditor",
+        "issues": "https://github.com/maileryio/mailery-template-email-ckeditor/issues",
+        "wiki": "https://github.com/maileryio/mailery-template-email-ckeditor/wiki"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
@@ -25,12 +29,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Mailery\\_____\\": "src"
+            "Mailery\\Template\\Email\\CKEditor\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Mailery\\_____\\Tests\\": "tests"
+            "Mailery\\Template\\Email\\CKEditor\\Tests\\": "tests"
         }
     },
     "scripts": {

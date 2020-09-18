@@ -1,14 +1,14 @@
-# _____
+# Email template ckeditor module for Mailery Platform
 
-**_____**
+**Email template ckeditor module for Mailery Platform**
 
-[![Latest Stable Version](https://poser.pugx.org/maileryio/_____/v/stable)](https://packagist.org/packages/maileryio/_____)
-[![Total Downloads](https://poser.pugx.org/maileryio/_____/downloads)](https://packagist.org/packages/maileryio/_____)
-[![Build Status](https://travis-ci.com/maileryio/_____.svg?branch=master)](https://travis-ci.com/maileryio/_____)
-[![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/maileryio/_____.svg)](https://scrutinizer-ci.com/g/maileryio/_____/)
-[![Scrutinizer Code Coverage](https://img.shields.io/scrutinizer/coverage/g/maileryio/_____.svg)](https://scrutinizer-ci.com/g/maileryio/_____/)
+[![Latest Stable Version](https://poser.pugx.org/maileryio/mailery-template-email-ckeditor/v/stable)](https://packagist.org/packages/maileryio/mailery-template-email-ckeditor)
+[![Total Downloads](https://poser.pugx.org/maileryio/mailery-template-email-ckeditor/downloads)](https://packagist.org/packages/maileryio/mailery-template-email-ckeditor)
+[![Build Status](https://travis-ci.com/maileryio/mailery-template-email-ckeditor.svg?branch=master)](https://travis-ci.com/maileryio/mailery-template-email-ckeditor)
+[![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/maileryio/mailery-template-email-ckeditor.svg)](https://scrutinizer-ci.com/g/maileryio/mailery-template-email-ckeditor/)
+[![Scrutinizer Code Coverage](https://img.shields.io/scrutinizer/coverage/g/maileryio/mailery-template-email-ckeditor.svg)](https://scrutinizer-ci.com/g/maileryio/mailery-template-email-ckeditor/)
 
-_____
+Email template ckeditor module for Mailery Platform
 
 ## Installation
 
@@ -17,13 +17,13 @@ The preferred way to install this library is through [composer](http://getcompos
 Either run
 
 ```sh
-php composer.phar require "maileryio/_____"
+php composer.phar require "maileryio/mailery-template-email-ckeditor"
 ```
 
 or add
 
 ```json
-"maileryio/_____": "*"
+"maileryio/mailery-template-email-ckeditor": "*"
 ```
 
 to the require section of your composer.json.
