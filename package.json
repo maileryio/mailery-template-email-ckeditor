@@ -1,3 +1,6 @@
 {
-    "license": "BSD-3-Clause"
+    "license": "BSD-3-Clause",
+    "dependencies": {
+        "@maileryio/mailery-template-email-ckeditor-assets": "git+ssh://git@github.com/maileryio/mailery-template-email-ckeditor-assets.git#master"
+    }
 }
