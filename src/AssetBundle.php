@@ -3,9 +3,9 @@
 namespace Mailery\Template\Email\CKEditor;
 
 use Mailery\Web\Assets\VueAssetBundle;
-use Yiisoft\Assets\AssetBundle;
+use Yiisoft\Assets\AssetBundle as BaseAssetBundle;
 
-class AssetBundle extends AssetBundle
+class AssetBundle extends BaseAssetBundle
 {
     /**
      * {@inheritdoc}
