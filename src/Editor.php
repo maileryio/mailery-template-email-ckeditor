@@ -8,22 +8,6 @@ use Mailery\Template\Email\CKEditor\Widget;
 class Editor implements EditorInterface
 {
     /**
-     * @var string
-     */
-    private string $content;
-
-    /**
-     * @inheritdoc
-     */
-    public function withContent(string $content): self
-    {
-        $new = clone $this;
-        $new->content = $content;
-
-        return $new;
-    }
-
-    /**
      * @inheritdoc
      */
     public function getName(): string
@@ -44,7 +28,6 @@ class Editor implements EditorInterface
      */
     public function getWidget(): Widget
     {
-        return Widget::widget()
-            ->content($this->content);
+        return Widget::widget();
     }
 }

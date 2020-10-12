@@ -6,9 +6,21 @@ use Yiisoft\Widget\Widget as BaseWidget;
 use Yiisoft\Assets\AssetManager;
 use Mailery\Web\Assets\AppAssetBundle;
 use Mailery\Template\Email\CKEditor\AssetBundle;
+use Yiisoft\Html\Html;
+use Mailery\Template\Email\Model\EditorWidgetInterface;
 
-final class Widget extends BaseWidget
+final class Widget extends BaseWidget implements EditorWidgetInterface
 {
+    /**
+     * @var string
+     */
+    private string $name;
+
+    /**
+     * @var string
+     */
+    private string $value;
+
     /**
      * @var AssetManager
      */
@@ -23,14 +35,27 @@ final class Widget extends BaseWidget
     }
 
     /**
-     * @param string $content
+     * @param string $name
      * @return self
      */
-    public function content(string $content): self
+    public function withName(string $name): self
     {
-        $this->content = $content;
+        $new = clone $this;
+        $new->name = $name;
 
-        return $this;
+        return $new;
+    }
+
+    /**
+     * @param string $value
+     * @return self
+     */
+    public function withValue(string $value): self
+    {
+        $new = clone $this;
+        $new->value = $value;
+
+        return $new;
     }
 
     /**
@@ -38,9 +63,24 @@ final class Widget extends BaseWidget
      */
     protected function run(): string
     {
+        $this->registerAssets();
+
+        return Html::tag(
+            'ui-template-email-ckeditor',
+            '',
+            [
+                'input-name' => $this->name,
+                'input-value' => $this->value,
+            ]
+        );
+    }
+
+    /**
+     * @return void
+     */
+    private function registerAssets()
+    {
         $bundle = $this->assetManager->getBundle(AppAssetBundle::class);
         $bundle->depends[] = AssetBundle::class;
-
-        return '<div>.....</div>';
     }
 }
