@@ -47,7 +47,10 @@
             "dev-master": "1.0.x-dev"
         },
         "config-plugin": {
-            "params": "config/params.php"
+            "params": "params.php"
+        },
+        "config-plugin-options": {
+            "source-directory": "config"
         }
     },
     "config": {
