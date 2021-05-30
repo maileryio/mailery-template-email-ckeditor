@@ -4,6 +4,7 @@ namespace Mailery\Template\Email\CKEditor;
 
 use Mailery\Template\Email\Model\EditorInterface;
 use Mailery\Template\Email\CKEditor\Widget;
+use Mailery\Template\Email\Model\EditorWidgetInterface;
 
 class Editor implements EditorInterface
 {
@@ -26,7 +27,7 @@ class Editor implements EditorInterface
     /**
      * @inheritdoc
      */
-    public function getWidget(): Widget
+    public function getWidget(): EditorWidgetInterface
     {
         return Widget::widget();
     }
