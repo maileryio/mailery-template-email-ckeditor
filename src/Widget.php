@@ -3,11 +3,11 @@
 namespace Mailery\Template\Email\CKEditor;
 
 use Yiisoft\Widget\Widget as BaseWidget;
-use Yiisoft\Assets\AssetManager;
 use Mailery\Web\Assets\AppAssetBundle;
 use Mailery\Template\Email\CKEditor\AssetBundle;
 use Yiisoft\Html\Html;
 use Mailery\Template\Email\Model\EditorWidgetInterface;
+use Mailery\Assets\AssetBundleRegistry;
 
 final class Widget extends BaseWidget implements EditorWidgetInterface
 {
@@ -22,16 +22,16 @@ final class Widget extends BaseWidget implements EditorWidgetInterface
     private string $value;
 
     /**
-     * @var AssetManager
+     * @var AssetBundleRegistry
      */
-    private AssetManager $assetManager;
+    private AssetBundleRegistry $assetBundleRegistry;
 
     /**
-     * @param AssetManager $assetManager
+     * @param AssetBundleRegistry $assetBundleRegistry
      */
-    public function __construct(AssetManager $assetManager)
+    public function __construct(AssetBundleRegistry $assetBundleRegistry)
     {
-        $this->assetManager = $assetManager;
+        $this->assetBundleRegistry = $assetBundleRegistry;
     }
 
     /**
@@ -80,7 +80,6 @@ final class Widget extends BaseWidget implements EditorWidgetInterface
      */
     private function registerAssets()
     {
-        $bundle = $this->assetManager->getBundle(AppAssetBundle::class);
-        $bundle->depends[] = AssetBundle::class;
+        $this->assetBundleRegistry->add(AssetBundle::class);
     }
 }
