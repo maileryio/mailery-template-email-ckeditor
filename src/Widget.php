@@ -3,23 +3,31 @@
 namespace Mailery\Template\Email\CKEditor;
 
 use Yiisoft\Widget\Widget as BaseWidget;
-use Mailery\Web\Assets\AppAssetBundle;
 use Mailery\Template\Email\CKEditor\AssetBundle;
 use Yiisoft\Html\Html;
+use Yiisoft\Form\FormModelInterface;
+use Yiisoft\Form\Helper\HtmlForm;
+use Yiisoft\Form\Widget\Field;
 use Mailery\Template\Email\Model\EditorWidgetInterface;
 use Mailery\Assets\AssetBundleRegistry;
 
 final class Widget extends BaseWidget implements EditorWidgetInterface
 {
+
     /**
-     * @var string
+     * @var FormModelInterface
      */
-    private string $name;
+    private FormModelInterface $data;
 
     /**
      * @var string
      */
-    private string $value;
+    private string $attribute;
+
+    /**
+     * @var array
+     */
+    private array $options = [];
 
     /**
      * @var AssetBundleRegistry
@@ -35,44 +43,54 @@ final class Widget extends BaseWidget implements EditorWidgetInterface
     }
 
     /**
-     * @param string $name
-     * @return self
+     * @inheritdoc
      */
-    public function withName(string $name): self
+    public function config(FormModelInterface $data, string $attribute): self
     {
         $new = clone $this;
-        $new->name = $name;
-
+        $new->data = $data;
+        $new->attribute = $attribute;
         return $new;
     }
 
     /**
-     * @param string $value
-     * @return self
+     * @inheritdoc
      */
-    public function withValue(string $value): self
+    public function options(array $options = []): self
     {
         $new = clone $this;
-        $new->value = $value;
-
+        $new->options = $options;
         return $new;
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     protected function run(): string
     {
         $this->registerAssets();
 
-        return Html::tag(
-            'ui-template-email-ckeditor',
-            '',
-            [
-                'input-name' => $this->name,
-                'input-value' => $this->value,
-            ]
-        );
+        $value = HtmlForm::getAttributeValue($this->data, $this->attribute);
+        if ($value !== null && is_scalar($value)) {
+            $value = (string)$value;
+        }
+
+        return Field::widget()
+            ->config($this->data, $this->attribute)
+            ->template(strtr(
+                "{label}\n{input}\n{hint}\n{error}",
+                [
+                    '{input}' => Html::tag(
+                        'ui-template-email-ckeditor',
+                        '',
+                        [
+                            'input-name' => $this->attribute,
+                            'input-value' => $value,
+                        ]
+                    )
+                ]
+            ))
+            ->textArea($this->options);
     }
 
     /**
