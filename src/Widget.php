@@ -68,11 +68,11 @@ final class Widget extends BaseWidget implements EditorWidgetInterface
      */
     protected function run(): string
     {
-        $this->registerAssets();
+        $this->assetBundleRegistry->add(AssetBundle::class);
 
         $value = HtmlForm::getAttributeValue($this->data, $this->attribute);
         if ($value !== null && is_scalar($value)) {
-            $value = (string)$value;
+            $value = (string) $value;
         }
 
         return Field::widget()
@@ -84,7 +84,7 @@ final class Widget extends BaseWidget implements EditorWidgetInterface
                         'ui-template-email-ckeditor',
                         '',
                         [
-                            'input-name' => $this->attribute,
+                            'input-name' => HtmlForm::getInputName($this->data, $this->attribute),
                             'input-value' => $value,
                         ]
                     )
@@ -93,11 +93,4 @@ final class Widget extends BaseWidget implements EditorWidgetInterface
             ->textArea($this->options);
     }
 
-    /**
-     * @return void
-     */
-    private function registerAssets()
-    {
-        $this->assetBundleRegistry->add(AssetBundle::class);
-    }
 }
