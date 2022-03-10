@@ -1,7 +1,7 @@
 <?php
 
 use Mailery\Template\Email\CKEditor\Editor;
-use Yiisoft\Factory\Definition\Reference;
+use Yiisoft\Definitions\Reference;
 
 return [
     'maileryio/mailery-template-email' => [
