@@ -15,7 +15,7 @@ class AssetBundle extends BaseAssetBundle
     /**
      * {@inheritdoc}
      */
-    public ?string $baseUrl = '@web/@maileryio/mailery-template-email-ckeditor-assets';
+    public ?string $baseUrl = '@assetsUrl/@maileryio/mailery-template-email-ckeditor-assets';
 
     /**
      * {@inheritdoc}
