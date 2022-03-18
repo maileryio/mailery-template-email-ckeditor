@@ -30,17 +30,11 @@ final class Widget extends BaseWidget implements EditorWidgetInterface
     private array $options = [];
 
     /**
-     * @var AssetBundleRegistry
-     */
-    private AssetBundleRegistry $assetBundleRegistry;
-
-    /**
      * @param AssetBundleRegistry $assetBundleRegistry
      */
-    public function __construct(AssetBundleRegistry $assetBundleRegistry)
-    {
-        $this->assetBundleRegistry = $assetBundleRegistry;
-    }
+    public function __construct(
+        private AssetBundleRegistry $assetBundleRegistry
+    ) {}
 
     /**
      * @inheritdoc
@@ -76,7 +70,7 @@ final class Widget extends BaseWidget implements EditorWidgetInterface
         }
 
         return Field::widget()
-            ->config($this->data, $this->attribute)
+            ->textArea($this->data, $this->attribute, $this->options)
             ->template(strtr(
                 "{label}\n{input}\n{hint}\n{error}",
                 [
@@ -89,8 +83,7 @@ final class Widget extends BaseWidget implements EditorWidgetInterface
                         ]
                     )
                 ]
-            ))
-            ->textArea($this->options);
+            ));
     }
 
 }
