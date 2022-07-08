@@ -7,7 +7,7 @@ use Mailery\Template\Email\CKEditor\AssetBundle;
 use Yiisoft\Html\Html;
 use Yiisoft\Form\FormModelInterface;
 use Yiisoft\Form\Helper\HtmlForm;
-use Yiisoft\Form\Widget\Field;
+use Yiisoft\Form\Field;
 use Mailery\Template\Email\Model\EditorWidgetInterface;
 use Mailery\Assets\AssetBundleRegistry;
 
@@ -69,8 +69,7 @@ final class Widget extends BaseWidget implements EditorWidgetInterface
             $value = (string) $value;
         }
 
-        return Field::widget()
-            ->textArea($this->data, $this->attribute, $this->options)
+        return Field::textarea($this->data, $this->attribute, $this->options)
             ->template(strtr(
                 "{label}\n{input}\n{hint}\n{error}",
                 [
