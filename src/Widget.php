@@ -8,7 +8,7 @@ use Yiisoft\Html\Html;
 use Yiisoft\Form\FormModelInterface;
 use Yiisoft\Form\Helper\HtmlForm;
 use Yiisoft\Form\Field;
-use Mailery\Template\Email\Model\EditorWidgetInterface;
+use Mailery\Template\Editor\EditorWidgetInterface;
 use Mailery\Assets\AssetBundleRegistry;
 
 final class Widget extends BaseWidget implements EditorWidgetInterface

@@ -2,9 +2,9 @@
 
 namespace Mailery\Template\Email\CKEditor;
 
-use Mailery\Template\Email\Model\EditorInterface;
+use Mailery\Template\Editor\EditorInterface;
 use Mailery\Template\Email\CKEditor\Widget;
-use Mailery\Template\Email\Model\EditorWidgetInterface;
+use Mailery\Template\Editor\EditorWidgetInterface;
 
 class Editor implements EditorInterface
 {
